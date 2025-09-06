@@ -1,0 +1,345 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222, 84%, 4.9%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(215, 16%, 46.9%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222, 84%, 4.9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222, 84%, 4.9%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(25, 95%, 53%);
+  --secondary-foreground: hsl(222, 84%, 4.9%);
+  --accent: hsl(210, 40%, 96%);
+  --accent-foreground: hsl(222, 84%, 4.9%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(221, 83%, 53%);
+  --radius: 0.75rem;
+  --success: hsl(142, 71%, 45%);
+  --warning: hsl(38, 92%, 50%);
+}
+
+.dark {
+  --background: hsl(222, 84%, 4.9%);
+  --foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217, 32%, 17%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  --popover: hsl(222, 84%, 4.9%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --card: hsl(222, 84%, 4.9%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217, 32%, 17%);
+  --input: hsl(217, 32%, 17%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(25, 95%, 53%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(217, 32%, 17%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62%, 30%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(221, 83%, 53%);
+  --success: hsl(142, 71%, 45%);
+  --warning: hsl(38, 92%, 50%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl lg:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg lg:text-xl;
+  }
+
+  h6 {
+    @apply text-base lg:text-lg;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium transition-colors;
+  }
+
+  .btn-primary:hover {
+    background-color: hsl(221, 83%, 48%);
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground px-6 py-2 rounded-lg font-medium transition-colors;
+  }
+
+  .btn-secondary:hover {
+    background-color: hsl(25, 95%, 48%);
+  }
+
+  .card-hover {
+    @apply transition-shadow duration-200 hover:shadow-lg;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary to-blue-800;
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-r from-secondary to-orange-600;
+  }
+
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent;
+  }
+
+  .hero-pattern {
+    background-image: radial-gradient(circle at 1px 1px, hsl(221, 83%, 53%, 0.1) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Custom styles for HandyConnect */
+.handyconnect-bg-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, hsl(221, 83%, 53%, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, hsl(25, 95%, 53%, 0.05) 0%, transparent 50%);
+}
+
+.service-card {
+  @apply bg-slate-50 dark:bg-slate-800 rounded-xl p-6 text-center card-hover cursor-pointer transition-all duration-300;
+}
+
+.service-card:hover {
+  @apply bg-white dark:bg-slate-700 shadow-lg transform -translate-y-1;
+}
+
+.service-icon {
+  @apply w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300;
+}
+
+.worker-card {
+  @apply bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6 card-hover border border-slate-200 dark:border-slate-700;
+}
+
+.stats-card {
+  @apply text-white rounded-xl p-6 relative overflow-hidden;
+}
+
+.stats-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r opacity-10;
+}
+
+.rating-stars {
+  @apply flex items-center text-yellow-400;
+}
+
+.rating-stars .star-filled {
+  @apply text-yellow-400;
+}
+
+.rating-stars .star-empty {
+  @apply text-slate-300 dark:text-slate-600;
+}
+
+.intervention-status {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.status-pending {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400;
+}
+
+.status-accepted {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400;
+}
+
+.status-in-progress {
+  @apply bg-orange-100 text-orange-800 dark:bg-orange-900/20 dark:text-orange-400;
+}
+
+.status-completed {
+  @apply bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400;
+}
+
+.status-cancelled {
+  @apply bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400;
+}
+
+.chat-bubble {
+  @apply max-w-xs rounded-lg px-3 py-2 mb-2;
+}
+
+.chat-bubble-sent {
+  @apply bg-primary text-primary-foreground ml-auto;
+}
+
+.chat-bubble-received {
+  @apply bg-muted text-muted-foreground;
+}
+
+/* Custom scrollbar for chat */
+.chat-messages {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted)) transparent;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted-foreground));
+}
+
+/* Loading animations */
+.loading-skeleton {
+  @apply animate-pulse bg-slate-200 dark:bg-slate-700 rounded;
+}
+
+.loading-dots {
+  @apply inline-flex space-x-1;
+}
+
+.loading-dots div {
+  @apply w-2 h-2 bg-current rounded-full animate-bounce;
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+/* Form enhancements */
+.form-floating {
+  @apply relative;
+}
+
+.form-floating input:focus + label,
+.form-floating input:not(:placeholder-shown) + label {
+  @apply transform -translate-y-6 scale-75 text-primary;
+}
+
+.form-floating label {
+  @apply absolute left-3 top-3 text-muted-foreground transition-all duration-200 pointer-events-none;
+}
+
+/* Dashboard grid */
+.dashboard-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+.dashboard-content {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-8;
+}
+
+/* Navigation active states */
+.nav-link {
+  @apply px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+}
+
+.nav-link.active {
+  @apply text-primary;
+  background-color: hsl(221, 83%, 53%, 0.1);
+}
+
+.nav-link:not(.active) {
+  @apply text-muted-foreground hover:text-foreground hover:bg-accent;
+}
+
+/* Mobile responsive utilities */
+@media (max-width: 768px) {
+  .mobile-grid {
+    @apply grid-cols-1;
+  }
+  
+  .mobile-text-sm {
+    @apply text-sm;
+  }
+  
+  .mobile-p-4 {
+    @apply p-4;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    @apply hidden;
+  }
+  
+  .print-only {
+    @apply block;
+  }
+  
+  body {
+    @apply text-black bg-white;
+  }
+}
