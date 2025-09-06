@@ -15,6 +15,7 @@ Ce projet a été développé dans un cadre académique à l’INSEA pour mettre
 - **ORM :** Drizzle ORM  
 
 ---
+![Aperçu de l'application](image.jpeg)
 
 ## ⚙️ Installation et configuration
 
